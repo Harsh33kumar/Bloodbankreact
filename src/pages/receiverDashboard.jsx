@@ -7,7 +7,7 @@ function ReceiverDashboard() {
   const [bloodSamples, setBloodSamples] = useState([]);
   const navigate = useNavigate();
 
-  const host = "http://localhost/backend_bb";
+  const host = "https://bloodbankbackend.free.nf/backend_bb";
 
   useEffect(() => {
     fetchBloodSamples();
