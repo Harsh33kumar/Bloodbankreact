@@ -18,7 +18,7 @@ function BloodSamples() {
         }
 
         const response = await axios.get(
-          `https://bloodbankbackend.free.nf/backend_bb/view-blood-samples.php?hospital_id=${user.id}`,
+          `/api/backend_bb/view-blood-samples.php?hospital_id=${user.id}`,
         );
 
         // console.log(response.data);
@@ -45,7 +45,7 @@ function BloodSamples() {
 
     try {
       const response = await axios.post(
-        "https://bloodbankbackend.free.nf/backend_bb/update-blood-sample.php",
+        "/api/backend_bb/update-blood-sample.php",
         {
           id: sample.id,
           quantity: sample.newQuantity,
@@ -87,7 +87,7 @@ function BloodSamples() {
 
     try {
       const response = await axios.post(
-        "https://bloodbankbackend.free.nf/backend_bb/delete-blood-sample.php",
+        "/api/backend_bb/delete-blood-sample.php",
         {
           id,
           hospital_id: user.id,

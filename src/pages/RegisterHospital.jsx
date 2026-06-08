@@ -28,7 +28,7 @@ function RegisterHospital() {
 
     try {
       const response = await fetch(
-        "https://bloodbankbackend.free.nf/backend_bb/hospitalReg.php",
+        "/api/backend_bb/hospitalReg.php",
         {
           method: "POST",
           headers: {

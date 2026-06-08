@@ -44,7 +44,7 @@ function RequestBlood() {
     // console.log("form data:", formData);
     try {
       const response = await axios.post(
-        "https://bloodbankbackend.free.nf/backend_bb/requestBlood.php",
+        "/api/backend_bb/requestBlood.php",
         formData,
       );
 
