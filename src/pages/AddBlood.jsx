@@ -27,7 +27,7 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await fetch(
-      "/api/backend_bb/addblood.php",
+      "/backend_bb/addblood.php",
       {
         method: "POST",
         headers: {

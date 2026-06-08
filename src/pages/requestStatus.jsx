@@ -8,7 +8,7 @@ function RequestStatus() {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const host = "/api/backend_bb";
+  const host = "/backend_bb";
 
   const user = JSON.parse(localStorage.getItem("user") || "{}");
 

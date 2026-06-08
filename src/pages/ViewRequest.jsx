@@ -10,7 +10,7 @@ function ViewRequest() {
   const username = user.username || "";
   const userEmail = user.email || "";
 
-  const host = "/api/backend_bb";
+  const host = "/backend_bb";
 
 
 const fetchBloodRequests = async () => {

@@ -28,7 +28,7 @@ function RegisterHospital() {
 
     try {
       const response = await fetch(
-        "/api/backend_bb/hospitalReg.php",
+        "/backend_bb/hospitalReg.php",
         {
           method: "POST",
           headers: {

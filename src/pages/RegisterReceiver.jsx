@@ -29,7 +29,7 @@ function RegisterReceiver() {
 
     try {
       const response = await fetch(
-        "/api/backend_bb/receiverReg.php",
+        "/backend_bb/receiverReg.php",
         {
           method: "POST",
           headers: {

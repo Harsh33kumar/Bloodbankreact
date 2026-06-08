@@ -4,7 +4,7 @@ import "../styles/login.less";
 
 function Login() {
 
-  const host = "/api/backend_bb";
+  const host = "/backend_bb";
 
   const handleLogin = async (e) => {
     e.preventDefault();
