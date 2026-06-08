@@ -27,7 +27,7 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await fetch(
-      "https://bloodbankbackend.free.nf/backend_bb/addblood.php",
+      "https://blood-bank.free.nf/backend_bb/addblood.php",
       {
         method: "POST",
         headers: {

@@ -4,7 +4,7 @@ import "../styles/login.less";
 
 function Login() {
 
-  const host = "https://bloodbankbackend.free.nf";
+  const host = "https://blood-bank.free.nf";
 
   const handleLogin = async (e) => {
     e.preventDefault();

@@ -8,7 +8,7 @@ function RequestStatus() {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const host = "https://bloodbankbackend.free.nf/backend_bb";
+  const host = "https://blood-bank.free.nf/backend_bb";
 
   const user = JSON.parse(localStorage.getItem("user") || "{}");
 

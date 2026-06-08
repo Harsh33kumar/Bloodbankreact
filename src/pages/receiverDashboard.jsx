@@ -7,7 +7,7 @@ function ReceiverDashboard() {
   const [bloodSamples, setBloodSamples] = useState([]);
   const navigate = useNavigate();
 
-  const host = "https://bloodbankbackend.free.nf";
+  const host = "https://blood-bank.free.nf";
 
   const fetchBloodSamples = async () => {
     try {
@@ -43,7 +43,7 @@ useEffect(() => {
   const fetchBloodSamples = async () => {
     try {
  const response = await fetch(
-  "https://bloodbankbackend.free.nf/backend_bb/getBloodSamples.php",{
+  "https://blood-bank.free.nf/backend_bb/getBloodSamples.php",{
     method: "GET",
     headers: {
       "Content-Type": "application/json",
