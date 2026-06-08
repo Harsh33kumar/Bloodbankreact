@@ -6,10 +6,11 @@ export default defineConfig({
 
   server: {
     proxy: {
-      '/backend_bb': {
+      '/api': {
         target: 'https://bloodbankbackend.free.nf',
         changeOrigin: true,
         secure: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },

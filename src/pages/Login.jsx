@@ -4,7 +4,7 @@ import "../styles/login.less";
 
 function Login() {
 
-  const host = "/backend_bb";
+  const host = "https://bloodbankbackend.free.nf";
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ function Login() {
     const role = formData.get("role");
     try {
       const response = await axios.post(
-        `${host}/login.php`,
+        `${host}/backend_bb/login.php`,
         {
           username,
           password,

@@ -7,20 +7,22 @@ function ReceiverDashboard() {
   const [bloodSamples, setBloodSamples] = useState([]);
   const navigate = useNavigate();
 
-  const host = "/backend_bb";
-
-  useEffect(() => {
-    fetchBloodSamples();
-  }, []);
+  const host = "https://bloodbankbackend.free.nf";
 
   const fetchBloodSamples = async () => {
     try {
-      const response = await axios.get(
-        `${host}/getBloodSamples.php`
-      );
+      const response = await axios.get(`${host}/backend_bb/getBloodSamples.php`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-      if (response.data.status) {
-        setBloodSamples(response.data.data);
+      const data = await response.json();
+
+      console.log("Blood Samples Response:", data);
+
+      if (data.status) {
+        setBloodSamples(data.data);
       }
     } catch (error) {
       console.log(error);
@@ -37,6 +39,39 @@ function ReceiverDashboard() {
     });
   };
 
+useEffect(() => {
+  const fetchBloodSamples = async () => {
+    try {
+ const response = await fetch(
+  "https://bloodbankbackend.free.nf/backend_bb/getBloodSamples.php",{
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }
+);
+
+console.log(response.status);
+console.log(response.headers.get("content-type"));
+
+const data = await response.text();
+console.log(data);
+
+      // console.log("Blood Samples Response:", data);
+
+      if (data.status) {
+        setBloodSamples(data.data);
+      }
+    } catch (error) {
+
+      console.log("Fetch Error:", error);
+      
+    }
+  };
+
+  fetchBloodSamples();
+}, []);
+
   return (
     <div className="receiver-dashboard">
       <div className="dashboard-header">
@@ -48,13 +83,9 @@ function ReceiverDashboard() {
         {bloodSamples.length > 0 ? (
           bloodSamples.map((sample) => (
             <div className="blood-card" key={sample.id}>
-              <div className="blood-group">
-                {sample.blood_group}
-              </div>
+              <div className="blood-group">{sample.blood_group}</div>
 
-              <div className="hospital-name">
-                {sample.hospital_name}
-              </div>
+              <div className="hospital-name">{sample.hospital_name}</div>
 
               <div className="quantity">
                 Available: <strong>{sample.quantity} Units</strong>
@@ -69,9 +100,7 @@ function ReceiverDashboard() {
             </div>
           ))
         ) : (
-          <div className="no-data">
-            No Blood Samples Available
-          </div>
+          <div className="no-data">No Blood Samples Available</div>
         )}
       </div>
     </div>
