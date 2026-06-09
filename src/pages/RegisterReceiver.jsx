@@ -29,7 +29,7 @@ function RegisterReceiver() {
 
     try {
       const response = await fetch(
-        "https://blood-bank.free.nf/backend_bb/receiverReg.php",
+        "/backend/api/receiverReg.php",
         {
           method: "POST",
           headers: {

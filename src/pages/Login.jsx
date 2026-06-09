@@ -16,7 +16,7 @@ function Login() {
     const role = formData.get("role");
     try {
       const response = await axios.post(
-        `${host}/backend_bb/login.php`,
+        `/backend/api/login.php`,
         {
           username,
           password,

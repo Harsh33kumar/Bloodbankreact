@@ -16,7 +16,7 @@ function ViewRequest() {
 const fetchBloodRequests = async () => {
   try {
     const response = await axios.get(
-      `${host}/getUserRequests.php`,
+      `/backend/api/getUserRequests.php`,
       {
         params: {
           receiverId: user.id,

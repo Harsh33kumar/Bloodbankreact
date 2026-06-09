@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -7,25 +9,24 @@ function ReceiverDashboard() {
   const [bloodSamples, setBloodSamples] = useState([]);
   const navigate = useNavigate();
 
-  const host = "https://blood-bank.free.nf";
+  useEffect(() => {
+    fetchBloodSamples();
+  }, []);
 
   const fetchBloodSamples = async () => {
     try {
-      const response = await axios.get(`${host}/backend_bb/getBloodSamples.php`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.get("/api/getBloodSamples.php");
 
-      const data = await response.json();
+      const data = response.data;
 
       console.log("Blood Samples Response:", data);
 
-      if (data.status) {
+      if (data?.status) {
         setBloodSamples(data.data);
       }
+
     } catch (error) {
-      console.log(error);
+      console.log("API Error:", error);
     }
   };
 
@@ -39,39 +40,6 @@ function ReceiverDashboard() {
     });
   };
 
-useEffect(() => {
-  const fetchBloodSamples = async () => {
-    try {
- const response = await fetch(
-  "https://blood-bank.free.nf/backend_bb/getBloodSamples.php",{
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }
-);
-
-console.log(response.status);
-console.log(response.headers.get("content-type"));
-
-const data = await response.text();
-console.log(data);
-
-      // console.log("Blood Samples Response:", data);
-
-      if (data.status) {
-        setBloodSamples(data.data);
-      }
-    } catch (error) {
-
-      console.log("Fetch Error:", error);
-      
-    }
-  };
-
-  fetchBloodSamples();
-}, []);
-
   return (
     <div className="receiver-dashboard">
       <div className="dashboard-header">
@@ -84,9 +52,7 @@ console.log(data);
           bloodSamples.map((sample) => (
             <div className="blood-card" key={sample.id}>
               <div className="blood-group">{sample.blood_group}</div>
-
               <div className="hospital-name">{sample.hospital_name}</div>
-
               <div className="quantity">
                 Available: <strong>{sample.quantity} Units</strong>
               </div>

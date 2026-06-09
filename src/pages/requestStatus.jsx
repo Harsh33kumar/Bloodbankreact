@@ -23,7 +23,7 @@ function RequestStatus() {
 
   const fetchRequests = async () => {
     try {
-      const response = await axios.get(`${host}/getHospitalRequests.php`, {
+      const response = await axios.get(`/backend/api/getHospitalRequests.php`, {
         params: {
           hospital_name: user.username,
         },
